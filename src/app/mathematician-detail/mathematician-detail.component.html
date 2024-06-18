@@ -1,0 +1,91 @@
+<div class="lds-ring" [class.d-none]="!isLoading"><div></div><div></div><div></div><div></div></div>
+<div *ngIf="mathematician" class="container">
+  <div class="row">
+    <h2 class="text-center">{{ mathematician.name | uppercase}}</h2>
+  </div>
+  <div class="row">
+    <div class="col col-lg-9 shadow-lg p-3 mb-5 bg-white rounded">
+      <h5 class="text-muted">{{ mathematician.description ? "Description":""}}</h5>
+      <hr width="160px" size="7px" color="blue"/>
+		  <p>{{ mathematician.description ? mathematician.description : "Aucune description." }}</p>
+    </div>
+    <div class="col col-lg-3 d-flex justify-content-center">
+      <img class="row" style="width: 200px; height: 200px;" src="{{ mathematician.img ? mathematician.img : '/assets/default.png' }}" onerror="this.onerror=null; this.src='/assets/default.png';" />
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col col-lg-4">
+      <div class="card">
+        <img style="height: 250px;" class="card-img-top" src="/assets/identity3.jpg" alt="Card image cap">
+        <hr>
+        <div class="card-body">
+          <h5 class="text-primary mt-4">{{ mathematician.birthDate ? "Date of birth" : "" }}</h5>
+          <p>{{ mathematician.birthDate ? mathematician.birthDate : "" }} </p>
+
+          <h5 class="text-primary mt-4">{{ mathematician.deathDate ? "Date of death" : "" }}</h5>
+          <p>{{ mathematician.deathDate ? mathematician.deathDate : "" }} </p>
+
+          <h5 class="text-primary mt-4"> {{ mathematician.birthPlace ? "Birth place" : "" }}</h5>
+          <p>{{ mathematician.birthPlace ? mathematician.birthPlace : "" }} </p>
+
+          <h5 class="text-primary mt-4"> {{ mathematician.nationality ? "Nationality" : "" }}</h5>
+          <p>{{ mathematician.nationality ? mathematician.nationality : "" }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-lg-4">
+      <div class="card">
+        <img style="height: 250px;" class="card-img-top" src="/assets/research.jpg" alt="Card image cap">
+        <div class="car-body">
+
+          <h5 class="text-primary mt-4">{{ mathematician.subject ? "Subjects" : "" }}</h5>
+          <p>{{ mathematician.subject ? mathematician.subject : "" }} </p>
+
+          <ng-container *ngIf="mathematician.works && mathematician.works[0].length != 0">
+            <h5 class="text-primary mt-4">{{ mathematician.works ? "Works" : "" }}</h5>
+            <ul>
+              <li *ngFor="let workElement of mathematician.works">
+                {{ workElement }}
+              </li>
+            </ul>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-lg-4">
+      <div class="card">
+        <img style="height: 250px;" class="card-img-top" src="/assets/studies.jpg" alt="Card image cap">
+        <div class="card-body">
+          <ng-container *ngIf="mathematician.studies && mathematician.studies[0].length != 0">
+            <h5 class="text-primary mt-4"> Studies</h5>
+            <ul>
+              <li *ngFor="let studyElement of mathematician.studies">
+                {{ studyElement}}
+              </li>
+            </ul>
+          </ng-container>
+
+          <ng-container *ngIf="mathematician.students && mathematician.students[0].length != 0"> <!-- there is some lists coming with this : [""]-->
+            <h5 class="text-primary mt-4"> Students </h5>
+            <ul *ngIf="mathematician.students && mathematician.students[0].length != 0">
+              <li *ngFor="let studentElement of mathematician.students">
+                <a routerLink="/Mathematician/{{studentElement}}">{{ studentElement }}</a>
+
+            </ul>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="d-flex justify-content-center mb-3">
+    <a class="btn btn-lg btn-outline-dark" href="searchbar"> Go back to search </a>
+  </div>
+
+</div>

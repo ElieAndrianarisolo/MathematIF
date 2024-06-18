@@ -1,0 +1,38 @@
+
+img {
+	border-radius: 8px;
+	max-width: 20%;
+	height: auto;
+	position: absolute;
+	left: 80%;
+	right: 0px;
+}
+
+
+
+
+
+.mathematician {
+	position: absolute;
+	left: 15%;
+	right: 15%;
+}
+
+
+.left {
+	position: absolute;
+	left: 0px;
+	right: 20%;
+}
+
+
+.center {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+}
+
+
+
+
+

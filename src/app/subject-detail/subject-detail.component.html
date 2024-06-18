@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="lds-ring" [class.d-none]="!isLoading"><div></div><div></div><div></div><div></div></div>
+  <div *ngIf="subject" class="subject">
+    <div class="row">
+      <h4 class="text-center text-primary">{{ subject.value | uppercase}}</h4>
+    </div>
+    <div class="row mt-3 d-flex justify-content-center" *ngIf="subject.img">
+      <img src="{{ subject.img ? subject.img : '/assets/default.png' }}" class="shadow p-4" style="width: 70%;"/>
+    </div>
+    <hr>
+
+    <ng-container *ngIf="subject.description">
+      <div class="row mt-3">
+        <h4 class="text-muted">Description </h4>
+        <hr width="160px" size="7px" color="blue"/>
+        <p>{{ subject.description }}</p>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="subject.inventor">
+      <div class="row mt-3">
+        <h4 class="text-muted"> Inventor </h4>
+        <hr width="160px" size="7px" color="blue"/>
+        <a routerLink="/Mathematician/{{subject.inventor}}">{{ subject.inventor }}</a>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="subject.subSubject">
+      <div class="row mt-3">
+        <h4 class="text-muted"> Sub domain </h4>
+        <hr width="160px" size="7px" color="blue"/>
+        <a routerLink="/Subject/{{subject.subSubject}}">{{ subject.subSubject }}</a>
+      </div>
+    </ng-container>
+
+    <div class="d-flex justify-content-center mt-3 mb-3">
+      <a class="btn btn-lg btn-outline-dark" href="searchbar"> Go back to search </a>
+    </div>
+
+  </div>
+</div>

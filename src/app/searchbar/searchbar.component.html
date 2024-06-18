@@ -1,0 +1,152 @@
+<div class="mx-5 shadow px-5" style="margin: 0 40%;">
+  <div class="px-5 mt-2">
+    <div class="mt-3 mb-4 fw-bold text-center" style="padding: 15px 15px 0">
+      Welcome on Mathemat'IF. Explore renowned mathematicians and discover the theorems that have
+      shaped our understanding of the world. Search, learn and be inspired by the beauty of mathematicians
+      through the ages.
+    </div>
+
+    <div [formGroup]="filterForm" (change)="updateFilters()" style="padding: 0 20px;">
+      <h3 class="mb-3" >Search for</h3>
+      <input id="mathematicianCheck" class="form-check-input" type="checkbox" value="" [formControl]="filterForm.controls.mathematicians">
+      <label for="mathematicianCheck" class="form-check-label">
+        Mathematicians
+      </label>
+      <input id="domainCheck" class="form-check-input ms-lg-3" type="checkbox" value="" [formControl]="filterForm.controls.domains">
+      <label for="domainCheck" class="form-check-label">
+        Domains
+      </label>
+      <input id="theoremCheck" class="form-check-input ms-lg-3" type="checkbox" value="" [formControl]="filterForm.controls.theorems">
+      <label for="theoremCheck" class="form-check-label">
+        Theorems
+      </label>
+    </div>
+
+    <div class="searchzone row mb-3 mt-3">
+      <div class="col-md-12 input-group">
+        <div class="lds-ring" [class.opacity-0]="!isLoading"><div></div><div></div><div></div><div></div></div>
+        <input #input type="text" class="searchinput form-control" placeholder="Search for..." aria-label="Search for..." (keyup.enter)="search(input.value)" [disabled]="isLoading">
+        <button class="btn btn-primary" type="button" (click) = "search(input.value)">Search</button>
+      </div>
+    </div>
+
+    <div class="datatable" style="padding: 20px;">
+      <ul class="mathematician">
+        <h4>Mathematician</h4>
+        <ng-container *ngIf="mathematicianTable.length == 0">
+          No mathematician found yet
+        </ng-container>
+        <div class="row">
+          <div class="col">
+            <a *ngFor="let mathsElement of mathematicianTable" routerLink="/{{mathsElement.field}}/{{mathsElement.value}}" class="btn btn-outline-primary" style="margin-right: 10px;">
+              {{mathsElement.value}}
+            </a>
+          </div>
+        </div>
+      </ul>
+      <ul class="domains">
+        <h4>Domains</h4>
+        <ng-container *ngIf="domainTable.length == 0">
+          No domains found yet
+        </ng-container>
+        <div class="row">
+          <div class="col">
+            <a *ngFor="let mathsElement of domainTable" routerLink="/{{mathsElement.field}}/{{mathsElement.value}}" class="btn btn-outline-primary" style="margin-right: 10px;">
+              {{mathsElement.value}}
+            </a>
+          </div>
+        </div>
+      </ul>
+      <ul class="theorems">
+        <h4>Theorems</h4>
+        <ng-container *ngIf="theoremTable.length == 0">
+          No theorem found yet
+        </ng-container>
+        <div class="row">
+          <div class="col">
+            <a *ngFor="let mathsElement of theoremTable" routerLink="/{{mathsElement.field}}/{{mathsElement.value}}" class="btn btn-outline-primary" style="margin-right: 10px;">
+              {{mathsElement.value}}
+            </a>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+	<div id="datatable" class="px-5 mt-2" >
+  <div style="padding: 20px;">
+    <h3 class="mb-3" >Top 10</h3>
+    <div class="row">
+      <div class="col">
+        <a *ngFor="let mathsElement of top10Table" routerLink="/{{mathsElement.field}}/{{mathsElement.value}}" class="btn btn-outline-primary" style="margin-right: 10px;">
+          {{mathsElement.value}}
+          <img src="{{ mathsElement.img ? mathsElement.img : '/assets/default.png' }}" class="imageTop10" onerror="this.onerror=null; this.src='/assets/default.png';">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="carouselId" class="carousel slide mt-4" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li
+        data-bs-target="#carouselId"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="First slide"
+      ></li>
+      <li
+        data-bs-target="#carouselId"
+        data-bs-slide-to="1"
+        aria-label="Second slide"
+      ></li>
+      <li
+        data-bs-target="#carouselId"
+        data-bs-slide-to="2"
+        aria-label="Third slide"
+      ></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <img
+          src="/assets/quantique.jpg"
+          class="w-100 d-block"
+          alt="First slide"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="/assets/maths.jpg"
+          class="w-100 d-block"
+          alt="Second slide"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="/assets/courbe.jpg"
+          class="w-100 d-block"
+          alt="Third slide"
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselId"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselId"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <br>
+  </div>
+</div>

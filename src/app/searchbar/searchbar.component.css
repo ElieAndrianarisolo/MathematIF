@@ -1,0 +1,39 @@
+.datatable {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.maths, .domains, .theorems {
+  grid-column: 1;
+  width: 33%;
+}
+
+.domains {
+  grid-column: 2;
+}
+
+.theorems {
+  grid-column: 3;
+}
+img{
+  height: 400px;
+}
+
+.imageTop10 {
+  height: 100px;
+}
+
+.searchzone:hover .searchzone::selection .searchzone:focus {
+  padding: 0;
+  margin: 0;
+}
+
+.searchinput:hover .searchinput::selection .searchinput:focus {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
