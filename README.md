@@ -2,6 +2,18 @@
 
 MathematIF is an Angular application that provides access to mathematical content, including mathematicians, fields, and theorems. The app leverages DBpedia and Wikidata to fetch data about prominent mathematicians, mathematical fields, and famous theorems.
 
+## Application Screenshots
+
+Below are some screenshots showcasing the **MathematIF** application:
+
+- **Home Page**: The main page of the application, featuring a search bar to look up mathematicians and a curated list of the top 10 mathematicians.
+
+  ![Home Page](./documentation/images_app/01_Home.png)
+
+- **Description Page**: A typical description page for a mathematician, displaying detailed information along with related mathematical fields and theorems.
+
+  ![Description Page](./documentation/images_app/02_Description.png)
+
 ## Prerequisites
 
 Before getting started, ensure you have the following installed:
